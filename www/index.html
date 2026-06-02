@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#c8b49a">
+  <title>Taş Kelime</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="gw">
+    <div class="stats-row">
+      <div class="sc"><div class="sc-label">Toplam skor</div><div class="sc-val skor" id="s-skor">0</div></div>
+      <div class="sc"><div class="sc-label">Kalan puan</div><div class="sc-val" id="s-puan">—</div></div>
+      <div class="sc"><div class="sc-label">Harf sayısı</div><div class="sc-val" id="s-harf">—</div></div>
+    </div>
+    <div class="haklar" id="haklar"></div>
+    <div class="action-row">
+      <input type="text" id="guess-input" placeholder="Kelimeyi tahmin et..." maxlength="30" disabled>
+      <button class="icon-btn hint-btn" id="hint-btn" disabled title="İpucu (-2 hak)">
+        <i class="ti ti-bulb"></i>
+      </button>
+      <button class="icon-btn guess-btn" id="guess-btn" disabled title="Tahmin (-2 hak)">
+        <i class="ti ti-brain"></i>
+      </button>
+    </div>
+    <div id="loading-msg" class="loading">Kelimeler yükleniyor...</div>
+    <div class="word-area" id="word-row" style="display:none"></div>
+    <div class="msg-stone" id="msg" style="display:none"></div>
+    <div class="keyboard" id="keyboard"></div>
+    <div class="divider"></div>
+    <button class="newgame-btn" id="newgame-btn" disabled>Yeni oyun</button>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
