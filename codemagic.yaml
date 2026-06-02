@@ -1,0 +1,40 @@
+workflows:
+  android-workflow:
+    name: Taş Kelime Android Build
+    max_build_duration: 60
+    environment:
+      node: 18
+      java: 17
+      groups:
+        - anthropic_keys
+    scripts:
+      - name: Install dependencies
+        script: npm install
+
+      - name: Inject API Key
+        script: |
+          perl -pi -e "s/YOUR_API_KEY_HERE/$ANTHROPIC_API_KEY/g" www/game.js
+          echo "API key injected"
+
+      - name: Add Android platform
+        script: npx cap add android || true
+
+      - name: Sync Capacitor
+        script: npx cap sync android
+
+      - name: Set SDK path
+        script: echo "sdk.dir=$ANDROID_SDK_ROOT" > android/local.properties
+
+      - name: Build debug APK
+        script: chmod +x android/gradlew && cd android && ./gradlew assembleDebug
+
+    artifacts:
+      - android/app/build/outputs/apk/debug/app-debug.apk
+
+    publishing:
+      email:
+        recipients:
+          - your@email.com
+        notify:
+          success: true
+          failure: true

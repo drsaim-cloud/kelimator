@@ -1,0 +1,7 @@
+{
+  "appId": "com.taskelime.app",
+  "appName": "Taş Kelime",
+  "webDir": "www",
+  "server": { "androidScheme": "https" },
+  "android": { "allowMixedContent": true, "captureInput": true }
+}
